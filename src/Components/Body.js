@@ -9,15 +9,18 @@ import SolarPanels from "../images/solar-panel.jpg";
 import SolarRoof from "../images/solar-roof.jpg";
 import Accessories from "../images/accessories.jpg";
 
-const Body = () => {
+const Body = ({active}) => {
   return (
-    <Container>
+    <Container active={active}>
       <Section
         img={Model3}
         title={"Model 3"}
         subtitle={"Order Online for Touchless Delivery"}
         leftButton="Custom Order"
         rightButton="Existing Inventory"
+        id="Model3"
+        active={active}
+        downArrow={"DownArrow"}
       />
       <Section
         img={ModelY}
@@ -25,6 +28,8 @@ const Body = () => {
         subtitle={"Order Online for Touchless Delivery"}
         leftButton="Custom Order"
         rightButton="Existing Inventory"
+        id="ModelY"
+        active={active}
       />
       <Section
         img={ModelS}
@@ -32,6 +37,8 @@ const Body = () => {
         subtitle={"Order Online for Touchless Delivery"}
         leftButton="Custom Order"
         rightButton="Existing Inventory"
+        id="ModelS"
+        active={active}
       />
       <Section
         img={ModelX}
@@ -39,6 +46,8 @@ const Body = () => {
         subtitle={"Order Online for Touchless Delivery"}
         leftButton="Custom Order"
         rightButton="Existing Inventory"
+        id="ModelX"
+        active={active}
       />
       <Section
         img={SolarPanels}
@@ -46,6 +55,8 @@ const Body = () => {
         subtitle={"Lowest Cost Solar Panels in America"}
         leftButton="Order Now"
         rightButton="Learn More"
+        active={active}
+        id="SolarPanels"
       />
       <Section
         img={SolarRoof}
@@ -53,12 +64,15 @@ const Body = () => {
         subtitle={""}
         leftButton="Order Now"
         rightButton="Learn More"
+        active={active}
+        id="SolarRoof"
       />
       <Section
         img={Accessories}
         title={"Accessories"}
         subtitle={"Produce Clean Energy From Your Roof"}
         leftButton="Shop Now"
+        active={active}
       />
     </Container>
   );

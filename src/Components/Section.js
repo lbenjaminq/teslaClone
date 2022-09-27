@@ -1,10 +1,9 @@
-import React from "react";
 import styled from "styled-components";
 import Arrow from "../images/down-arrow.svg";
 
-const Section = ({ img, title, subtitle, leftButton, rightButton }) => {
+const Section = ({ img, title, subtitle, leftButton, rightButton, id, active, downArrow}) => {
   return (
-    <Wrap img={img}>
+    <Wrap img={img} id={id} active={active}>
       <ItemText>
         <h1>{title}</h1>
         <p>{subtitle}</p>
@@ -14,7 +13,11 @@ const Section = ({ img, title, subtitle, leftButton, rightButton }) => {
           <LeftButton>{leftButton}</LeftButton>
           {rightButton && <RightButton>{rightButton}</RightButton>}
         </ButtonGroup>
-        <DownArrow src={Arrow} />
+        {downArrow ? (
+          <a href="#ModelY">
+            <DownArrow src={Arrow} />
+          </a>
+        ) : null}
       </Buttons>
     </Wrap>
   );
@@ -29,6 +32,8 @@ const Wrap = styled.div`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  transition: 0.6s;
+  filter: ${({ active }) => (active ? "blur(6px)" : null)};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,16 +47,19 @@ const ItemText = styled.div`
     color: #171a20;
     font-size: 40px;
     line-height: 48px;
+    animation: myAnim 1s ease 0s 1 normal forwards;
   }
   p {
     font-size: 14px;
     line-height: 20px;
+    animation: myAnim2 2s ease 0s 1 normal forwards;
   }
 `;
 
 const ButtonGroup = styled.div`
   display: flex;
   margin-bottom: 40px;
+  animation: myAnim2 2s ease 0s 1 normal forwards;
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -81,6 +89,7 @@ const DownArrow = styled.img`
   margin-top: 20px;
   height: 40px;
   animation: animateDown infinite 1.5s;
+  cursor: pointer;
 `;
 
 const Buttons = styled.div`
