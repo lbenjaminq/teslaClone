@@ -179,7 +179,7 @@ const BurgerNav = styled.div`
   top: 0;
   bottom: 0;
   right: 0;
-  background: /#fff;
+  background: #fff;
   width: 300px;
   z-index: 100;
   list-style: none;
